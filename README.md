@@ -12,11 +12,9 @@ A minimal calculator web app you can host on GitHub Pages. Supports basic arithm
 - `script.js` — calculator logic
 
 
-## Deploy on GitHub Pages
+## Page Live On GitHub
 
-1. Create a new GitHub repository and push these files.
-2. In repository settings -> Pages, choose `main` branch and `/ (root)`.
-3. Visit the provided URL.
+Click To See - https://rxrshah.github.io/Simple-Calculator/
 
 
 ## License
