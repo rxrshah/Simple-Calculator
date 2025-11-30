@@ -60,7 +60,7 @@ box-shadow: 0 2px 6px rgba(2,6,23,0.6);
 .btn.equal{grid-column: span 1; background:linear-gradient(180deg,var(--accent), #059669); color:#031014; font-weight:700}
 .btn.wide{grid-column: span 2}
 .btn.zero{grid-column: span 2}
-.hint{margin-top:12px;color:var(--muted);font-size:13px;text-align:center}
+.hint{margin-top:12px;color:blue;font-size:13px;text-align:center}
 .sr-only{position:absolute;left:-9999px}
 
 
