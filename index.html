@@ -2,54 +2,143 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Simple Calculator</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+<title>Professional Calculator Pro</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<main class="calc-root">
-<h1 class="sr-only">Simple Calculator</h1>
+<div class="calc-container">
+  <div class="calculator">
+    <div class="calc-header">
+      <div class="header-left">
+        <div class="calc-logo">🧮</div>
+        <div class="calc-title">Calculator Pro</div>
+      </div>
+      <div class="header-actions">
+        <button class="header-btn" id="themeToggle" aria-label="Themes" title="Change Theme">🎨</button>
+        <button class="header-btn" id="historyToggle" aria-label="History" title="View History">
+          📋
+          <span class="badge" id="historyBadge" style="display:none;">0</span>
+        </button>
+      </div>
+    </div>
 
+    <div class="display-section">
+      <div class="display-top">
+        <div class="history-display" id="historyDisplay"></div>
+        <div class="display-mode" id="displayMode">STANDARD</div>
+      </div>
+      <div class="display-value" id="display">0</div>
+    </div>
 
-<div class="calculator" role="application" aria-label="Simple calculator">
-<div class="display" id="display" aria-live="polite">0</div>
+    <div class="mode-toggle">
+      <div class="toggle-container">
+        <button class="toggle-btn active" data-mode="standard">Standard</button>
+        <button class="toggle-btn" data-mode="scientific">Scientific</button>
+      </div>
+    </div>
 
+    <div class="scientific-row" id="scientificRow">
+      <button class="btn-scientific" data-action="sqrt" title="Square Root (R)">√x</button>
+      <button class="btn-scientific" data-action="square" title="Square (Q)">x²</button>
+      <button class="btn-scientific" data-action="cube" title="Cube">x³</button>
+      <button class="btn-scientific" data-action="inverse" title="Inverse (I)">1/x</button>
+      <button class="btn-scientific" data-action="power" title="Power (^)">xʸ</button>
+      <button class="btn-scientific" data-action="sin" title="Sine (degrees)">sin</button>
+      <button class="btn-scientific" data-action="cos" title="Cosine (degrees)">cos</button>
+      <button class="btn-scientific" data-action="tan" title="Tangent (degrees)">tan</button>
+      <button class="btn-scientific" data-action="log" title="Logarithm base 10">log</button>
+      <button class="btn-scientific" data-action="ln" title="Natural Logarithm">ln</button>
+      <button class="btn-scientific" data-action="pi" title="Pi (P)">π</button>
+      <button class="btn-scientific" data-action="e" title="Euler's Number (E)">e</button>
+      <button class="btn-scientific" data-action="factorial" title="Factorial (!)">n!</button>
+      <button class="btn-scientific" data-action="abs" title="Absolute Value">|x|</button>
+      <button class="btn-scientific" data-action="rand" title="Random Number">rnd</button>
+    </div>
 
-<div class="buttons" role="group" aria-label="Calculator buttons">
-<button class="btn wide" data-action="clear">C</button>
-<button class="btn" data-action="back">⌫</button>
-<button class="btn operator" data-value="%">%</button>
+    <div class="buttons">
+      <button class="btn btn-function" data-action="clear" title="Clear All (Esc)">AC</button>
+      <button class="btn btn-function" data-action="back" title="Backspace">⌫</button>
+      <button class="btn btn-function" data-action="percent" title="Percent">%</button>
+      <button class="btn btn-operator" data-value="/" title="Divide">÷</button>
 
+      <button class="btn btn-number" data-value="7">7</button>
+      <button class="btn btn-number" data-value="8">8</button>
+      <button class="btn btn-number" data-value="9">9</button>
+      <button class="btn btn-operator" data-value="*" title="Multiply">×</button>
 
-<button class="btn" data-value="7">7</button>
-<button class="btn" data-value="8">8</button>
-<button class="btn" data-value="9">9</button>
-<button class="btn operator" data-value="/">÷</button>
+      <button class="btn btn-number" data-value="4">4</button>
+      <button class="btn btn-number" data-value="5">5</button>
+      <button class="btn btn-number" data-value="6">6</button>
+      <button class="btn btn-operator" data-value="-" title="Subtract">−</button>
 
+      <button class="btn btn-number" data-value="1">1</button>
+      <button class="btn btn-number" data-value="2">2</button>
+      <button class="btn btn-number" data-value="3">3</button>
+      <button class="btn btn-operator" data-value="+" title="Add">+</button>
 
-<button class="btn" data-value="4">4</button>
-<button class="btn" data-value="5">5</button>
-<button class="btn" data-value="6">6</button>
-<button class="btn operator" data-value="*">×</button>
+      <button class="btn btn-number btn-zero" data-value="0">0</button>
+      <button class="btn btn-number" data-value="." title="Decimal Point">.</button>
+      <button class="btn btn-equals" data-action="equals" title="Equals (Enter)">=</button>
+    </div>
 
-
-<button class="btn" data-value="1">1</button>
-<button class="btn" data-value="2">2</button>
-<button class="btn" data-value="3">3</button>
-<button class="btn operator" data-value="-">−</button>
-
-
-<button class="btn zero" data-value="0">0</button>
-<button class="btn" data-value=".">.</button>
-<button class="btn equal" data-action="equals">=</button>
-<button class="btn operator" data-value="+">+</button>
+    <div class="calc-footer">
+      <div class="keyboard-hint">
+        <strong>Keyboard:</strong> Numbers • <strong>+, −, ×, ÷</strong> • <strong>Enter</strong> (=) • <strong>Backspace</strong> • <strong>Esc</strong> (Clear)<br>
+        <strong>Scientific:</strong> <strong>R</strong> (√) • <strong>Q</strong> (x²) • <strong>P</strong> (π) • <strong>E</strong> (e) • <strong>I</strong> (1/x) • <strong>^</strong> (Power)
+      </div>
+    </div>
+  </div>
 </div>
+
+<div class="theme-menu" id="themeMenu">
+  <div class="theme-menu-title">Light Themes</div>
+  <div class="theme-option active" data-theme="purple">🟣 Purple Gradient</div>
+  <div class="theme-option" data-theme="blue">🔵 Ocean Blue</div>
+  <div class="theme-option" data-theme="green">🟢 Emerald Green</div>
+  <div class="theme-option" data-theme="orange">🟠 Sunset Orange</div>
+  <div class="theme-option" data-theme="red">🔴 Ruby Red</div>
+  <div class="theme-option" data-theme="pink">🩷 Rose Pink</div>
+  <div class="theme-option" data-theme="teal">🔷 Aqua Teal</div>
+  <div class="theme-option" data-theme="sunset">🌅 Sky Sunset</div>
+  <div class="theme-menu-title" style="margin-top: 12px;">Dark Themes</div>
+  <div class="theme-option" data-theme="darkPurple">🌙 Midnight Purple</div>
+  <div class="theme-option" data-theme="darkBlue">🌊 Deep Ocean</div>
+  <div class="theme-option" data-theme="darkGreen">🌲 Forest Night</div>
+  <div class="theme-option" data-theme="midnight">⚫ Dark Gray</div>
+  <div class="theme-option" data-theme="amoled">⬛ Pure Black (AMOLED)</div>
 </div>
 
+<div class="history-panel" id="historyPanel">
+  <div class="history-content">
+    <div class="history-header">
+      <div class="history-title">History</div>
+      <button class="close-history" id="closeHistory" aria-label="Close" title="Close History">×</button>
+    </div>
+    <div class="history-list" id="historyList">
+      <div class="history-empty">
+        <div class="history-empty-icon">📊</div>
+        No calculations yet<br>
+        <small style="color: #6b6f7f; font-size: 13px; margin-top: 8px; display: inline-block;">Start calculating to build history</small>
+      </div>
+    </div>
+    <div class="history-actions">
+      <div class="history-stats">
+        <div class="stat-item">
+          <span class="stat-value" id="totalCalc">0</span>
+          <span class="stat-label">Total</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="todayCalc">0</span>
+          <span class="stat-label">Today</span>
+        </div>
+      </div>
+      <button class="clear-history" id="clearHistory">Clear All History</button>
+    </div>
+  </div>
+</div>
 
-<p class="hint">You can also use your keyboard — numbers, + - * /, Enter for =, Backspace and Escape (clear).</p>
-</main>
-
+<div class="toast" id="toast"></div>
 
 <script src="script.js"></script>
 </body>
